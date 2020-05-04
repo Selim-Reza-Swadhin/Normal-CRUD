@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Information</title>
+</head>
+<body>
+<form name="form" onsubmit="return check()" action="save.php" method="post" enctype="multipart/form-data">
+    Student Id : <input type="text" name="sid"><br><br>
+    Student Pass : <input type="text" name="sp"><br><br>
+    Student Name : <input type="text" name="sn"><br><br>
+    Student Age : <input type="text" name="sa"><br><br>
+    Gender : <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Male"> Male<br><br>
+    Country : <select name="country" id="country">
+    <option value="Bangladesh">Bangladesh</option>
+    <option value="USA">USA</option>
+    <option value="Germany">Germany</option>
+</select>
+    <br><br>
+    Image : <input type="file" name="image" id="picture"><br><br>
+    Audio : <input type="file" name="audio" id="audio"><br><br>
+    Video : <input type="file" name="video" id="video"><br><br>
+    <input type="submit" name="submit" value="submit">
+</form>
+<script>
+    function check() {
+        let stuid = document.form.sid.value;
+        let pass = document.form.sp.value;
+        let name = document.form.sn.value;
+        let age = document.form.sa.value;
+        let gender = document.form.gender.value;
+        let country = document.form.country.value;
+        let image = document.form.image.value;
+        let audio = document.form.audio.value;
+        let video = document.form.video.value;
+
+        if (stuid == "") {
+            alert("Student id field cannot be empty.");
+            return false;
+        }
+        if (pass == "") {
+            alert("Student password field cannot be empty.");
+            return false;
+        }
+        if (name == "") {
+            alert("Student name field cannot be empty.");
+            return false;
+        }
+        if (age == "") {
+            alert("Student age field cannot be empty.");
+            return false;
+        } else if (age < 18) {
+            alert("Student age must be 18 or upper.");
+            return false;
+        }
+        if (gender == "") {
+            alert("Student gender field cannot be empty.");
+            return false;
+        }
+        if (country == "") {
+            alert("Student country field cannot be empty.");
+            return false;
+        }
+        if (image == "") {
+            alert("Student image field cannot be empty.");
+            return false;
+        }
+        if (audio == "") {
+            alert('Student audio field cannot be empty.');
+            alert(' Maximum allowed size for uploaded files.upload_max_filesize=300M, php.ini');
+            return false;
+        }
+        if (video == "") {
+            alert('Student video field cannot be empty.');
+            alert(' Maximum allowed size for uploaded files.upload_max_filesize=300M, php.ini');
+            return false;
+        }
+
+
+    }
+</script>
+
+</body>
+</html>
